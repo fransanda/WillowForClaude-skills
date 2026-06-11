@@ -174,7 +174,7 @@ If autonomous-claude-itagents is detected, the existing project is retrofitted w
 
 **Configurable timing:**
 ```
-/improve                                        # defaults: fixes every 24h, improvements every 7d
+/improve                                        # defaults: fixes every 4h, improvements every 24h
 /improve fixes every 12h                        # more frequent fix scans
 /improve improvements every 3d                  # more frequent improvement proposals
 /improve fixes every 6h improvements every 1d   # aggressive (active development)

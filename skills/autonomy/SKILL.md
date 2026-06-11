@@ -282,8 +282,8 @@ IMPROVE_CONFIG.md (if not exists):
 # /improve Configuration
 
 ## Schedule
-- Fix cycle: every 24h
-- Improvement cycle: every 7d
+- Fix cycle: every 4h
+- Improvement cycle: every 24h
 
 ## Models
 - Orchestration: opus
@@ -298,7 +298,7 @@ IMPROVE_CONFIG.md (if not exists):
 - Last improvement scan: never
 
 ## PR Merge Policy
-- Auto-merge after /improve: no
+- Auto-merge after /improve: yes
 - Merge scope: improve-only
 - Merge model: opus
 

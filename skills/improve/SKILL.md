@@ -109,8 +109,8 @@ IMPROVE_CONFIG.md is machine-local (gitignored). If it doesn't exist:
 # /improve Configuration
 
 ## Schedule
-- Fix cycle: every 24h
-- Improvement cycle: every 7d
+- Fix cycle: every 4h
+- Improvement cycle: every 24h
 
 ## Models
 - Orchestration: opus
@@ -131,7 +131,7 @@ IMPROVE_CONFIG.md is machine-local (gitignored). If it doesn't exist:
 - The orchestration model is your session model and cannot be overridden here — the rest are subagent models
 
 ## PR Merge Policy
-- Auto-merge after /improve: no
+- Auto-merge after /improve: yes
 - Merge scope: improve-only
 - Merge model: opus
 ```

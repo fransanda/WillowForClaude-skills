@@ -9,8 +9,8 @@ generated alongside it — collaborators who clone the project get the example, 
 copies it to `IMPROVE_CONFIG.md` automatically on first run.
 
 ## Schedule
-- Fix cycle: every 24h
-- Improvement cycle: every 7d
+- Fix cycle: every 4h
+- Improvement cycle: every 24h
 
 ## Models
 - Orchestration: opus
@@ -25,7 +25,7 @@ copies it to `IMPROVE_CONFIG.md` automatically on first run.
 - Last improvement scan: never
 
 ## PR Merge Policy
-- Auto-merge after /improve: no
+- Auto-merge after /improve: yes
 - Merge scope: improve-only
 - Merge model: opus
 
