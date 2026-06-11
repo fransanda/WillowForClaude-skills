@@ -37,6 +37,7 @@ Silently run checks to detect what's installed:
 - Check package managers, build tools, and test runners used in the project
 - Check for required API keys or credentials referenced in the code (look in .env, .env.example, config files, environment variable references)
 - Check if any MCP servers could help (Playwright, Google APIs, databases, etc.)
+- **Browser automation for UI testing (REQUIRED when itagents is installed AND the project has a UI/frontend).** The UI testing army (`/uitest`, and the Coordinator's auto-deploy during `/itagentsreview`) cannot run without a browser tool. Detect at least one, in preference order: Playwright MCP, chrome-devtools MCP, the `agent-browser` skill, or `npx playwright`. If the project has a UI and NONE is present, list it under MISSING and recommend Playwright MCP.
 - Check if a git remote exists: `git remote -v`
 
 **ONLY show tools that are MISSING or need user action.** Do NOT list tools that are already installed and working.
@@ -48,6 +49,11 @@ If there are missing tools, credentials, or no GitHub repo, present this to the 
 
 MISSING (required to continue development):
   ❌ [tool] — not installed. Run: [exact install command]
+
+BROWSER AUTOMATION (required for UI testing — show only if this project has a UI and no browser tool is present):
+  ❌ No browser automation tool found — the UI testing army can't run without one.
+     Recommended: Playwright MCP — claude mcp add playwright -- npx @playwright/mcp@latest
+     Alternatives: chrome-devtools MCP, the agent-browser skill, or `npx playwright install`
 
 CREDENTIALS NEEDED:
   🔑 [service] — .env references [VAR_NAME] but no value found. Do you have this?
@@ -113,7 +119,7 @@ fi
 
 Replace `PROJECT_DESCRIPTION_HERE` with a real one-line description from the codebase analysis.
 
-Also verify the .gitignore includes `.env`, `*.key`, `*.pem`, `credentials.json`, `.agents/STATE.md`, `.agents/LESSONS.md.archive-*`, `PAUSE.md`, `IMPROVE_CONFIG.md` and other secret-bearing or local control files. Add them if missing. (IMPROVE_CONFIG.md is machine-local; the committed placeholder for collaborators is IMPROVE_CONFIG.example.md — see Step 6c. NEVER `git add IMPROVE_CONFIG.md` — it's ignored and the add will error.)
+Also verify the .gitignore includes `.env`, `*.key`, `*.pem`, `credentials.json`, `.agents/STATE.md`, `.agents/LESSONS.md.archive-*`, `PAUSE.md`, `IMPROVE_CONFIG.md`, `TEST_USERS.md` (fake-account credentials from the UI testing army), `.uitest/` (UI test screenshots) and other secret-bearing or local control files. Add them if missing. (IMPROVE_CONFIG.md is machine-local; the committed placeholder for collaborators is IMPROVE_CONFIG.example.md — see Step 6c. NEVER `git add IMPROVE_CONFIG.md` — it's ignored and the add will error.)
 
 ## Step 5: Update or create CLAUDE.md
 

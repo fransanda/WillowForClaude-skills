@@ -64,6 +64,7 @@ Based on the project description, think about EVERY tool, service, and integrati
 Before presenting questions, silently run checks to detect what's installed:
 - `git --version`, `node --version`, `npm --version`, `gh --version`, `python --version`, `docker --version`
 - And any other tools relevant to the project description
+- **Browser automation for UI testing (REQUIRED when itagents is installed AND this project will have a UI/frontend — web or mobile app).** The UI testing army (`/uitest`, and the Coordinator's auto-deploy during `/itagentsreview`) cannot run without a browser tool. Detect at least one, in preference order: Playwright MCP, chrome-devtools MCP, the `agent-browser` skill, or `npx playwright`. If this will be a UI project and NONE is present, list it under MISSING and recommend Playwright MCP.
 
 **ONLY show tools that are MISSING or need user action.** Do NOT list tools that are already installed — the user doesn't need to know about those. Only bother the user with things that require their action.
 
@@ -74,6 +75,11 @@ After your project questions, add a **Tooling section** in the SAME message. Onl
 
 MISSING (required to build this project):
   ❌ [tool] — not installed. Run: [exact install command]
+
+BROWSER AUTOMATION (required for UI testing — show only if this will be a UI project and no browser tool is present):
+  ❌ No browser automation tool found — the UI testing army can't run without one.
+     Recommended: Playwright MCP — claude mcp add playwright -- npx @playwright/mcp@latest
+     Alternatives: chrome-devtools MCP, the agent-browser skill, or `npx playwright install`
 
 CREDENTIALS NEEDED:
   🔑 [service] — I need [specific key/token]. Do you have one?
@@ -364,7 +370,11 @@ secrets.json
 .agents/LESSONS.md.archive-*
 PAUSE.md
 IMPROVE_CONFIG.md
+TEST_USERS.md
+.uitest/
 ```
+
+(`TEST_USERS.md` holds fake-account credentials created by the UI testing army; `.uitest/` holds UI test screenshots. Both are machine-local and must never be committed.)
 
 (IMPROVE_CONFIG.md is machine-local — its schedule and Last Run timestamps belong to each machine. The committed placeholder is IMPROVE_CONFIG.example.md, created in Step 5c. NEVER `git add IMPROVE_CONFIG.md` — it's ignored and the add will error.)
 Plus the usual stack-specific entries (`node_modules/`, `__pycache__/`, `dist/`, `build/`, `.next/`, etc.).
